@@ -6,7 +6,7 @@
 
 1. Learn how and when to keep linked lists in order.
 2. Learn about doubly-linked lists and circular linked lists.
-3. Practice with adding and removing nodes from ordered linked lists.
+3. Practice with adding nodes to ordered linked lists.
 4. Practice with creating, adding and removing nodes from doubly-linked lists.
 5. Practice with creating, adding and removing nodes from circular linked lists.
 
@@ -45,6 +45,67 @@ Practice visualizing an ordered linked list with the exercise below:
 ### Exercise 1
 
 Refer to [Exercise 1](./starter-exercises/exercise-1/).
+
+#### Circular Linked Lists
+
+Imagine looping over your music playlist; when you reach the end of the playlist, you want the next song in the queue to be the start. A circular linked list is another variation of the linked list that allows such behavior. In more technical terms, no node in the circular linked list ever points to `null`: the final node will point to the head (in the case of there being a single node, the head will point towards itself).
+
+A problem arises, however: How do we insert into a circular linked list? In a normal linked list, we insert at the head and point the new node towards the old head. But if we do so, we also have to change the pointer of the last node as it is still pointing towards the old head. Then, our code must look something like this:
+
+```java
+void insert(int value) {
+  Node curr = head;
+
+  // Null check, iterate until the last node (which is pointing at head) is found
+  while (curr != null && curr.next != head) {
+    curr = curr.next;
+  }
+
+  // Insert the new node at the head
+  head = new Node(value, head);
+  
+  // If the list wasn't empty, point the last node to head
+  if (curr != null) {
+    curr.next = head;
+  }
+}
+```
+
+Therefore, every insertion will require iterating through the entire list: this is a very costly operation. The trick? *Keep a pointer to the final node*.
+
+```java
+class LinkedList {
+  class Node {
+    // ...
+  }
+
+  Node head; // our first node
+  Node tail; // our last node
+
+  LinkedList() {
+    head = null;
+    tail = null;
+  }
+}
+```
+
+A linked list that tracks the tail node is also a variation of the linked list on its own (so many options!) As long as we keep track of our tail node correctly, we can insert a new node without using any loops:
+
+```java
+void insert(int value) {
+  if (head != null) {
+    head = new Node(value, head);
+    tail.next = head;
+  } else {
+    // List is empty, point both head and tail to the same node
+    head = new Node(value, head);
+    head.next = head;
+    tail = head;
+  }
+}
+```
+
+The added complexity of keeping track of the tail node means deleting from the list will be more difficult, however. Can you try it?
 
 ### Exercise 2
 
