@@ -44,6 +44,8 @@ Practice visualizing an ordered linked list with the exercise below:
 
 ### Exercise 1
 
+Refer to [Exercise 1](./starter-exercises/exercise-1/).
+
 ### Exercise 2
 
 ### Exercise 3
