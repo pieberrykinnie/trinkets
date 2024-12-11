@@ -40,9 +40,9 @@ void orderedInsert(int value) {
 }
 ```
 
-Practice visualizing an ordered linked list with the exercise below:
-
 ### Exercise 1
+
+Practice visualizing an ordered linked list with the exercise below:
 
 Refer to [Exercise 1](./starter-exercises/exercise-1/).
 
@@ -105,8 +105,14 @@ void insert(int value) {
 }
 ```
 
-The added complexity of keeping track of the tail node means deleting from the list will be more difficult, however. Can you try it?
-
 ### Exercise 2
 
+Practice traversing a circular linked list by writing a `toString()` method that will return a string representation of the list.
+
+Refer to [Exercise 2](./starter-exercises/exercise-2/)
+
 ### Exercise 3
+
+The added complexity of keeping track of the tail node means deleting from the list will be more difficult, however. Can you try it?
+
+Refer to [Exercise 3](./starter-exercises/exercise-3/)
