@@ -1,16 +1,16 @@
 public class LinkedList {
     private class Node {
-        public int value;
+        public int data;
         public Node next;
 
-        public Node(int value, Node next) {
-            this.value = value;
+        public Node(int data, Node next) {
+            this.data = data;
             this.next = next;
         }
 
         @Override
         public String toString() {
-            return "" + value;
+            return "" + data;
         }
     }
 
@@ -20,19 +20,19 @@ public class LinkedList {
         head = null;
     }
 
-    public void orderedInsert(int value) {
+    public void orderedInsert(int data) {
         Node curr = head;
         Node prev = null;
 
-        while (curr != null && curr.value < value) {
+        while (curr != null && curr.data < data) {
             prev = curr;
             curr = curr.next;
         }
 
         if (prev != null) {
-            prev.next = new Node(value, curr);
+            prev.next = new Node(data, curr);
         } else {
-            head = new Node(value, curr);
+            head = new Node(data, curr);
         }
     }
 

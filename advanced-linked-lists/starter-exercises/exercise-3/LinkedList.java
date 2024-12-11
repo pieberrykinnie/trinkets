@@ -24,7 +24,10 @@ public class LinkedList {
     // What access modifier (public/private) should this method have?
 
     public void delete(int data) {
+        // Traverse through the list until the node is found
+        // OR the entire list has been traversed (when?)
 
+        // Delete the node
     }
 
     @Override

@@ -19,18 +19,18 @@ In the [Linked Lists Stretch chapter](https://celine-latulipe-9048.trinket.io/ja
 The main difference between an ordered linked list and an unordered linked list is their `insert()` method. Here is sample code for how an ordered insert might look like:
 
 ```java
-void orderedInsert(int value) {
+void orderedInsert(int data) {
   Node curr = head;
   Node prev = null;
 
   // The loop iterates until either the end of the list, or when a node with a value larger than ours is found
-  while (curr != null && curr.value < value) {
+  while (curr != null && curr.data < data) {
     prev = curr;
     curr = curr.next;
   }
 
   // Create a node with our value that points to the "correct position"
-  Node newNode = new Node(value, curr);
+  Node newNode = new Node(data, curr);
 
   if (prev != null) {
     prev.next = newNode;
@@ -53,7 +53,7 @@ Imagine looping over your music playlist; when you reach the end of the playlist
 A problem arises, however: How do we insert into a circular linked list? In a normal linked list, we insert at the head and point the new node towards the old head. But if we do so, we also have to change the pointer of the last node as it is still pointing towards the old head. Then, our code must look something like this:
 
 ```java
-void insert(int value) {
+void insert(int data) {
   Node curr = head;
 
   // Null check, iterate until the last node (which is pointing at head) is found
@@ -62,7 +62,7 @@ void insert(int value) {
   }
 
   // Insert the new node at the head
-  head = new Node(value, head);
+  head = new Node(data, head);
   
   // If the list wasn't empty, point the last node to head
   if (curr != null) {
@@ -92,13 +92,13 @@ class LinkedList {
 A linked list that tracks the tail node is also a variation of the linked list on its own (so many options!) As long as we keep track of our tail node correctly, we can insert a new node without using any loops:
 
 ```java
-void insert(int value) {
+void insert(int data) {
   if (head != null) {
-    head = new Node(value, head);
+    head = new Node(data, head);
     tail.next = head;
   } else {
     // List is empty, point both head and tail to the same node
-    head = new Node(value, head);
+    head = new Node(data, head);
     head.next = head;
     tail = head;
   }
@@ -109,10 +109,10 @@ void insert(int value) {
 
 Practice traversing a circular linked list by writing a `toString()` method that will return a string representation of the list.
 
-Refer to [Exercise 2](./starter-exercises/exercise-2/)
+Refer to [Exercise 2](./starter-exercises/exercise-2/).
 
 ### Exercise 3
 
 The added complexity of keeping track of the tail node means deleting from the list will be more difficult, however. Can you try it?
 
-Refer to [Exercise 3](./starter-exercises/exercise-3/)
+Refer to [Exercise 3](./starter-exercises/exercise-3/).
