@@ -116,3 +116,23 @@ Refer to [Exercise 2](./starter-exercises/exercise-2/).
 The added complexity of keeping track of the tail node means deleting from the list will be more difficult, however. Can you try it?
 
 Refer to [Exercise 3](./starter-exercises/exercise-3/).
+
+#### Doubly Linked Lists
+
+In a music playlist, you can backtrack to the song that had just been played. There is always a "Previous Song" button alongside the "Next Song" button; this is possible because every song knows about both the songs before and after it. We can apply a similar principle to our linked list, by designing our nodes to not only store a pointer to the next node, but also to the node prior:
+
+```java
+class Node {
+  int data;
+  Node next;
+  Node prev; // the previous node in the list
+}
+```
+
+The doubly linked list is another version of the linked list that is comprised of such nodes. The node structure can also be used in a linked list with a tail pointer or a circular linked list for extra flexbility, depending on the use case.
+
+### Exercise 4
+
+Write a `traverse()` method that will print out the content of a doubly linked list with a tail node in both forward and reverse orders.
+
+Refer to [Exercise 4](./starter-exercises/exercise-4/).
