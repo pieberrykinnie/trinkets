@@ -32,7 +32,7 @@ class Main {
         System.out.println("Empty linked list:");
         ll = new LinkedList();
 
-        System.out.println("Expected output: << 1 >>");
+        System.out.println("Expected output: << >>");
         System.out.println("Your output: " + ll + "\n");
 
         System.out.println("Program completed.");
